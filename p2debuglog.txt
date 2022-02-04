@@ -1,4 +1,4 @@
- gcc -g p2original.c
+ cc -g p2original.c
  gdb a.out
 GNU gdb (Ubuntu 8.1.1-0ubuntu1) 8.1.1
 Copyright (C) 2018 Free Software Foundation, Inc.
@@ -25,18 +25,46 @@ Breakpoint 1, main () at p2original.c:42
 42    a = input();
 (gdb) n
 enter the number:
-5
+1
 43    b = input();
+(gdb) s
+input () at p2original.c:3
+3   {
+(gdb) n
+5     printf("enter the number:\n");
 (gdb) n
 enter the number:
-3
+6     scanf("%d", &a);
+(gdb) n
+5
+7     return a;
+(gdb) p a
+$1 = 5
+(gdb) n
+8   }
+(gdb) n
+main () at p2original.c:44
 44    c = input();
+(gdb) s
+input () at p2original.c:3
+3   {
+(gdb) n
+5     printf("enter the number:\n");
 (gdb) n
 enter the number:
-6
+6     scanf("%d", &a);
+(gdb) n
+8
+7     return a;
+(gdb) p a
+$2 = 8
+(gdb) n
+8   }
+(gdb) n
+main () at p2original.c:45
 45    largest = cmp(a, b, c);
 (gdb) n
 46    output(largest);
 (gdb) n
-the largest is: 6
+the largest is: 8
 47  }(gdb) n
